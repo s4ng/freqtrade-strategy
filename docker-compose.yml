@@ -66,7 +66,7 @@ services:
       backtesting
       --config /freqtrade/user_data/config-backtest.json
       --strategy ElliotV5_SMA
-      --timerange 20230101-20240912 -i 5m
+      --timerange 20240313-20240918 -i 5m
 
 
   download-data:
@@ -102,7 +102,7 @@ services:
       --exchange binance
       --timerange 20230101-
       --config /freqtrade/user_data/config.json
-      --pairs SOL/USDT CKB/USDT SUI/USDT XRP/USDT PEPE/USDT DOGS/USDT FET/USDT 1000SATS/USDT WIF/USDT FTM/USDT DOGE/USDT AAVE/USDT TIA/USDT TRX/USDT AVAX/USDT ORDI/USDT TON/USDT SUPER/USDT SEI/USDT RUNE/USDT RARE/USDT NEAR/USDT TAO/USDT LUNA/USDT WLD/USDT QUICK/USDT ENA/USDT POL/USDT BOME/USDT SAGA/USDT
+      --pairs SOL/USDT NEIRO/USDT PEPE/USDT SUI/USDT WIF/USDT FET/USDT XRP/USDT FTM/USDT 1000SATS/USDT DOGS/USDT SAGA/USDT TIA/USDT NEAR/USDT AVAX/USDT DOGE/USDT TAO/USDT SEI/USDT 1MBABYDOGE/USDT CKB/USDT ORDI/USDT FLOKI/USDT BOME/USDT RUNE/USDT ZRO/USDT KDA/USDT NOT/USDT SHIB/USDT IO/USDT TON/USDT WLD/USDT
 
   test-pairlist:
     image: freqtradeorg/freqtrade:stable
