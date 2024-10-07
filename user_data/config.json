@@ -41,7 +41,6 @@
         "ccxt_async_config": {
             "enableRateLimit": true,
             "rateLimit": 50
-
         },
         "pair_whitelist": [],
         "pair_blacklist": [
@@ -55,7 +54,7 @@
     "pairlists": [
         {
             "method": "VolumePairList",
-            "number_assets": 30,
+            "number_assets": 70,
             "sort_key": "quoteVolume",
             "refresh_period": 3600
         }    

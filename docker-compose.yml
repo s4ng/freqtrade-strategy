@@ -36,102 +36,39 @@ services:
 
   backtesting:
     image: freqtradeorg/freqtrade:stable
-    # image: freqtradeorg/freqtrade:develop
-    # Use plotting image
-    # image: freqtradeorg/freqtrade:develop_plot
-    # # Enable GPU Image and GPU Resources (only relevant for freqAI)
-    # # Make sure to uncomment the whole deploy section
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
-    # Build step - only needed when additional dependencies are needed
-    # build:
-    #   context: .
-    #   dockerfile: "./docker/Dockerfile.custom"
-    #restart: unless-stopped
     container_name: freqtrade
     volumes:
       - "./user_data:/freqtrade/user_data"
-    # Expose api on port 8080 (localhost only)
-    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
-    # for more information.
     ports:
       - "127.0.0.1:8080:8080"
-    # Default command used when running `docker compose up`
     command: >
       backtesting
       --config /freqtrade/user_data/config-backtest.json
       --strategy ElliotV5_SMA
-      --timerange 20240313-20240918 -i 5m
+      --timerange 20240101-20241006 -i 5m
 
 
   download-data:
     image: freqtradeorg/freqtrade:stable
-    # image: freqtradeorg/freqtrade:develop
-    # Use plotting image
-    # image: freqtradeorg/freqtrade:develop_plot
-    # # Enable GPU Image and GPU Resources (only relevant for freqAI)
-    # # Make sure to uncomment the whole deploy section
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
-    # Build step - only needed when additional dependencies are needed
-    # build:
-    #   context: .
-    #   dockerfile: "./docker/Dockerfile.custom"
-    #restart: unless-stopped
     container_name: freqtrade
     volumes:
       - "./user_data:/freqtrade/user_data"
-    # Expose api on port 8080 (localhost only)
-    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
-    # for more information.
     ports:
       - "127.0.0.1:8080:8080"
-    # Default command used when running `docker compose up`
     command: >
       download-data
       --exchange binance
-      --timerange 20230101-
+      --timerange 20240101-
       --config /freqtrade/user_data/config.json
-      --pairs SOL/USDT NEIRO/USDT PEPE/USDT SUI/USDT WIF/USDT FET/USDT XRP/USDT FTM/USDT 1000SATS/USDT DOGS/USDT SAGA/USDT TIA/USDT NEAR/USDT AVAX/USDT DOGE/USDT TAO/USDT SEI/USDT 1MBABYDOGE/USDT CKB/USDT ORDI/USDT FLOKI/USDT BOME/USDT RUNE/USDT ZRO/USDT KDA/USDT NOT/USDT SHIB/USDT IO/USDT TON/USDT WLD/USDT
+      --pairs NEIRO/USDT PEPE/USDT SOL/USDT WIF/USDT SUI/USDT TAO/USDT DOGE/USDT SHIB/USDT XRP/USDT WLD/USDT 1000SATS/USDT CVC/USDT FET/USDT OG/USDT SEI/USDT BONK/USDT APT/USDT NEAR/USDT FLOKI/USDT EIGEN/USDT ORDI/USDT RUNE/USDT SAGA/USDT BOME/USDT NOT/USDT FTM/USDT CATI/USDT ENA/USDT AVAX/USDT RENDER/USDT TIA/USDT DOGS/USDT FTT/USDT 1MBABYDOGE/USDT HMSTR/USDT TURBO/USDT ARKM/USDT TON/USDT ARB/USDT TRX/USDT LINK/USDT CFX/USDT AAVE/USDT CELO/USDT ETHFI/USDT W/USDT DIA/USDT GALA/USDT AUDIO/USDT STX/USDT OP/USDT IO/USDT PHB/USDT AR/USDT ZRO/USDT INJ/USDT ALT/USDT PENDLE/USDT ARK/USDT OM/USDT BNX/USDT ZK/USDT BANANA/USDT ICP/USDT CRV/USDT MKR/USDT UNI/USDT USTC/USDT MANTA/USDT ATM/USDT
 
   test-pairlist:
     image: freqtradeorg/freqtrade:stable
-    # image: freqtradeorg/freqtrade:develop
-    # Use plotting image
-    # image: freqtradeorg/freqtrade:develop_plot
-    # # Enable GPU Image and GPU Resources (only relevant for freqAI)
-    # # Make sure to uncomment the whole deploy section
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
-    # Build step - only needed when additional dependencies are needed
-    # build:
-    #   context: .
-    #   dockerfile: "./docker/Dockerfile.custom"
-    #restart: unless-stopped
     container_name: freqtrade
     volumes:
       - "./user_data:/freqtrade/user_data"
-    # Expose api on port 8080 (localhost only)
-    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
-    # for more information.
     ports:
       - "127.0.0.1:8080:8080"
-    # Default command used when running `docker compose up`
     command: >
       test-pairlist
       --config /freqtrade/user_data/config.json
