@@ -1,7 +1,7 @@
 
 {
     "$schema": "https://schema.freqtrade.io/schema.json",
-    "max_open_trades": 3,
+    "max_open_trades": 2,
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
@@ -54,7 +54,7 @@
     "pairlists": [
         {
             "method": "VolumePairList",
-            "number_assets": 70,
+            "number_assets": 30,
             "sort_key": "quoteVolume",
             "refresh_period": 3600
         }    
