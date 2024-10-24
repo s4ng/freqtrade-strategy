@@ -29,7 +29,7 @@ services:
     # Default command used when running `docker compose up`
     command: >
       trade
-      --strategy ElliotV5_SMA
+      --strategy E0V1E_53
       --logfile /freqtrade/user_data/logs/freqtrade.log
       --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
       --config /freqtrade/user_data/config.json
@@ -43,9 +43,9 @@ services:
       - "127.0.0.1:8080:8080"
     command: >
       backtesting
-      --config /freqtrade/user_data/config-backtest.json
-      --strategy ElliotV5_SMA
-      --timerange 20241019-20241023 -i 5m
+      --config /freqtrade/user_data/config.json
+      --strategy E0V1E_53
+      --timerange 20241019-20241025 -i 5m
 
 
   download-data:
@@ -58,9 +58,9 @@ services:
     command: >
       download-data
       --exchange binance
-      --timerange 20240901-
+      --timerange 20240101-
       --config /freqtrade/user_data/config.json
-      --pairs BTC/USDT SOL/USDT ETH/USDT DOGE/USDT NEIRO/USDT SCR/USDT APT/USDT APE/USDT SUI/USDT XRP/USDT ALPHA/USDT PEPE/USDT WIF/USDT UNI/USDT RUNE/USDT PIXEL/USDT BONK/USDT WLD/USDT BOME/USDT LINK/USDT CATI/USDT NEAR/USDT AVAX/USDT ENA/USDT FTM/USDT SEI/USDT FLOKI/USDT DYDX/USDT SHIB/USDT TAO/USDT RAY/USDT TRX/USDT
+      --pairs BTC/USDT ETH/USDT ADA/USDT SOL/USDT XRP/USDT AVAX/USDT SAND/USDT FTM/USDT ICP/USDT ALICE/USDT RAY/USDT DOT/USDT FTT/USDT AXS/USDT ATA/USDT C98/USDT CELO/USDT LRC/USDT XTZ/USDT AR/USDT ETC/USDT MBOX/USDT CHR/USDT LINK/USDT ATOM/USDT CHZ/USDT EOS/USDT AUDIO/USDT KAVA/USDT LTC/USDT BCH/USDT ENJ/USDT KSM/USDT NEAR/USDT THETA/USDT CAKE/USDT FARM/USDT MANA/USDT TRX/USDT RUNE/USDT MASK/USDT OGN/USDT UNI/USDT GTC/USDT BAKE/USDT EGLD/USDT FLOW/USDT COTI/USDT SUSHI/USDT SXP/USDT PERP/USDT DEGO/USDT GRT/USDT
 
   test-pairlist:
     image: freqtradeorg/freqtrade:stable
