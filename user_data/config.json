@@ -15,8 +15,8 @@
         "exit": 30
     },
     "order_types": {
-        "entry": "limit",
-        "exit": "limit",
+        "entry": "market",
+        "exit": "market",
         "emergency_exit": "market",
         "force_entry": "market",
         "force_exit": "market",
@@ -25,7 +25,7 @@
         "stoploss_on_exchange_interval": 60
     },
     "entry_pricing": {
-        "price_side": "same",
+        "price_side": "other",
         "ask_last_balance": 0,
         "use_order_book": true,
         "order_book_top": 1,
@@ -35,7 +35,7 @@
         }
     },
     "exit_pricing": {
-        "price_side": "same",
+        "price_side": "other",
         "use_order_book": true,
         "order_book_top": 1
     },
@@ -114,7 +114,7 @@
             "DENT\/USDT",
             "WAVES\/USDT",
             "GRT\/USDT",
-            "BTT\/USDT"
+            "BTT\/USDT",
         ],
         "pair_blacklist": [
             "TFUEL\/BTC",

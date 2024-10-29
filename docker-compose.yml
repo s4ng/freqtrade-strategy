@@ -45,7 +45,7 @@ services:
       backtesting
       --config /freqtrade/user_data/config.json
       --strategy E0V1E_53
-      --timerange 20241019-20241025 -i 5m
+      --timerange 20241027-20241030 -i 5m
 
 
   download-data:
