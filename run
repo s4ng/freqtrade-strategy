@@ -1,12 +1,14 @@
 #!/bin/bash
 
+mkdir -p ./user_data/logs
+
 function trade() {
   # trade
   docker compose up -d trade
 }
 
 function stop_trade() {
-  # trade
+  # stop trade
   docker compose down
 }
 
@@ -25,34 +27,30 @@ function backtesting() {
   docker compose run --rm backtesting
 }
 
+function print_args() {
+  echo "wrong arg"
+  echo ""
+  echo "trade               : start trading"
+  echo "stop                : stop trading"
+  echo "-p, --test-pairlist : get test pairlist"
+  echo "-d, --download-data : download trading data"
+  echo "-b, --backtesting   : backtesting"
+  return -1
+}
 ###
 
 for arg in "$@"; do
-  if [[ "$arg" = -t ]] || [[ "$arg" = --trade ]]; then
+  if [[ "$arg" = trade ]]; then
     trade
-    return 0
-  fi
-  if [[ "$arg" = -s ]] || [[ "$arg" = --stop ]]; then
+  elif [[ "$arg" = stop ]]; then
     stop_trade
-  fi
-  if [[ "$arg" = -p ]] || [[ "$arg" = --test-pairlist ]]; then
+  elif [[ "$arg" = -p ]] || [[ "$arg" = --test-pairlist ]]; then
     test_pairlist
-    return 0
-  fi
-  if [[ "$arg" = -d ]] || [[ "$arg" = --download-data ]]; then
+  elif [[ "$arg" = -d ]] || [[ "$arg" = --download-data ]]; then
     download_data
-    return 0
-  fi
-  if [[ "$arg" = -b ]] || [[ "$arg" = --backtesting ]]; then
+  elif [[ "$arg" = -b ]] || [[ "$arg" = --backtesting ]]; then
     backtesting
-    return 0
+  else
+    print_args
   fi
 done
-
-echo "wrong arg"
-echo ""
-echo "-t, --trade         : start trading"
-echo "-s, --stop          : stop trading"
-echo "-p, --test-pairlist : get test pairlist"
-echo "-d, --download-data : download trading data"
-echo "-b, --backtesting   : backtesting"
