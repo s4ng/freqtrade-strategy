@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function trade() {
+  # trade
+  docker compose up -d trade
+}
+
+function test_pairlist() {
+  # test-pairlist
+  docker compose run --rm test-pairlist
+}
+
+function download_data() {
+  # download-data
+  docker compose run --rm download-data
+}
+
+function backtesting() {
+  # backtesting
+  docker compose run --rm backtesting
+}
+
+###
+
+for arg in "$@"; do
+  if [[ "$arg" = -t ]] || [[ "$arg" = --trade ]]; then
+    trade() return 0
+  fi
+  if [[ "$arg" = -p ]] || [[ "$arg" = --test-pairlist ]]; then
+    test_pairlist() return 0
+  fi
+  if [[ "$arg" = -d ]] || [[ "$arg" = --download-data ]]; then
+    download_data() return 0
+  fi
+  if [[ "$arg" = -b ]] || [[ "$arg" = --backtesting ]]; then
+    backtesting() return 0
+  fi
+done
+
+echo "wrong arg"
+echo ""
+echo "-t, --trade         : start trading"
+echo "-p, --test-pairlist : get test pairlist"
+echo "-d, --download-data : download trading data"
+echo "-b, --backtesting   : backtesting"
+return -1

@@ -1,6 +1,7 @@
 user_data/data/
 user_data/tradesv3.sqlite*
 user_data/logs/
+user_data/config.json
 credentials.json
 .DS_Store
 **/.DS_Store

@@ -1,5 +1,5 @@
 {
-    "max_open_trades": 2,
+    "max_open_trades": 1,
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
@@ -7,7 +7,7 @@
     "fiat_display_currency": "USD",
     "timeframe": "5m",
     "stoploss_on_exchange": true,
-    "dry_run": true,
+    "dry_run": false,
     "cancel_open_orders_on_exit": false,
     "unfilledtimeout": {
         "unit": "minutes",
@@ -69,7 +69,7 @@
             "ATA\/USDT",
             "C98\/USDT",
             "CELO\/USDT",
-            "MATIC\/USDT",
+            "POL\/USDT",
             "EPS\/USDT",
             "LRC\/USDT",
             "XTZ\/USDT",
@@ -115,6 +115,7 @@
             "WAVES\/USDT",
             "GRT\/USDT",
             "BTT\/USDT",
+            "TRUMP\/USDT"
         ],
         "pair_blacklist": [
             "TFUEL\/BTC",
@@ -176,7 +177,7 @@
         "remove_pumps": false
     },
     "telegram": {
-        "enabled": false,
+        "enabled": true,
         "token": "",
         "chat_id": "",
         "keyboard": [
@@ -195,7 +196,7 @@
         "ws_token": "tONYUZhuxLIq3PHjWnriSdGZUnBHXufHig",
         "CORS_origins": [],
         "username": "freqtrader",
-        "password": "tkdrms2"
+        "password": ""
     },
     "bot_name": "freqtrade",
     "initial_state": "running",
